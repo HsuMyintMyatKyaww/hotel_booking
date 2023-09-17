@@ -229,14 +229,14 @@
                 <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"> About</a>
+                <a class="nav-link" href="#about"> About</a>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Furnitures</a>
               </li> -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Blog</a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link" href="#">Contact Us</a>
               </li>
@@ -549,7 +549,7 @@
 
   <!-- about section -->
 
-  <section class="about_section layout_padding long_section">
+  <section class="about_section layout_padding long_section" id="about">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -667,9 +667,8 @@
                   </div>
                   <div class="detail-box">
                     <div class="name">
-                      <i class="fa fa-quote-left" aria-hidden="true"></i>
                       <h6>
-                        Sein Thaung
+                        Henry
                       </h6>
                     </div>
                     <p>
@@ -689,13 +688,12 @@
                   </div>
                   <div class="detail-box">
                     <div class="name">
-                      <i class="fa fa-quote-left" aria-hidden="true"></i>
                       <h6>
-                        Hla Maung
+                        Daniel James
                       </h6>
                     </div>
                     <p>
-                    My recent stay at Urban Oasis was nothing short of exceptional. The hotel's prime location made it convenient for both business and leisure activities. What truly stood out, however, was the level of service. The staff went above and beyond to make my stay comfortable and memorable. They were always ready to assist with a smile, from accommodating special requests to providing valuable local recommendations.
+                    My recent stay at Urban Oasis was nothing short of exceptional. The hotel's prime location made it convenient for both business and leisure activities. What truly stood out, however, was the level of service. The staff went above and beyond to make my stay comfortable and memorable. They were always ready to assist with a smile.
                     </p>
                   </div>
                 </div>
@@ -711,9 +709,8 @@
                   </div>
                   <div class="detail-box">
                     <div class="name">
-                      <i class="fa fa-quote-left" aria-hidden="true"></i>
                       <h6>
-                        Khin San Win
+                      Jennifer Lawrence
                       </h6>
                     </div>
                     <p>
@@ -738,6 +735,48 @@
       </div>
     </div>
   </section>
+
+  <!-- <section class="contact_section  long_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <div class="heading_container">
+              <h2>
+                Contact Us
+              </h2>
+            </div>
+            <form action="">
+              <div>
+                <input type="text" placeholder="Your Name" />
+              </div>
+              <div>
+                <input type="text" placeholder="Phone Number" />
+              </div>
+              <div>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Message" />
+              </div>
+              <div class="btn_box">
+                <button>
+                  SEND
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
 
   <!-- end client section -->
 
@@ -875,7 +914,7 @@
                             <i class="fas fa-phone"></i>
                             <div class="cta-text">
                                 <h4>Call us</h4>
-                                <span>9876543210 0</span>
+                                <span>09971257302</span>
                             </div>
                         </div>
                     </div>
@@ -884,7 +923,7 @@
                             <i class="far fa-envelope-open"></i>
                             <div class="cta-text">
                                 <h4>Mail us</h4>
-                                <span>mail@info.com</span>
+                                <span>hsumyintmyatkyaw.dev@gmail.com</span>
                             </div>
                         </div>
                     </div>

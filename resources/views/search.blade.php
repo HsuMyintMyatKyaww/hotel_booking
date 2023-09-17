@@ -39,7 +39,10 @@ html {
 }
 
 body {
-    background: #efefef;
+  background-image: url('{{ asset('images/background.jpg') }}');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
 }
 
 section {
@@ -428,9 +431,8 @@ ul {
         </div>
       </nav>
     </header>
-    <section>
     <div class="container">
-        @if(isset($hotels))
+    @if(isset($hotels) && count($hotels) > 0)
     <div class="row">
         <div class="col-md-12">
             <h2>{{ $hotels[0]->hotel_name }} Hotel</h2>
@@ -459,11 +461,13 @@ ul {
             </div>
         @endforelse
     </div>
-@endif
-
+    @else
+    <div class="col-md-12">
+        <p>No hotels available for the provided city.</p>
     </div>
-  </div>
-  <footer class="footer-section">
+    @endif
+</div>
+<footer class="footer-section">
         <div class="container">
             <div class="footer-cta pt-5 pb-5">
                 <div class="row">
@@ -481,7 +485,7 @@ ul {
                             <i class="fas fa-phone"></i>
                             <div class="cta-text">
                                 <h4>Call us</h4>
-                                <span>9876543210 0</span>
+                                <span>09971257302</span>
                             </div>
                         </div>
                     </div>
@@ -490,7 +494,7 @@ ul {
                             <i class="far fa-envelope-open"></i>
                             <div class="cta-text">
                                 <h4>Mail us</h4>
-                                <span>mail@info.com</span>
+                                <span>hsumyintmyatkyaw.dev@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -521,6 +525,7 @@ ul {
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>
