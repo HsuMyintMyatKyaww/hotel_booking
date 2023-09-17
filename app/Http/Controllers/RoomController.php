@@ -27,12 +27,14 @@ class RoomController extends Controller
         $request->validate([
             'hotel_id' => 'required|exists:hotels,id',
             'room_type' => 'required|string|in:single,double,quad,king,suite,villa', 
-            'photo' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
             'available' => 'required|boolean',
         ]);
 
         try {
-            $photoPath = $request->file('photo')->store('room_photos', 'public');
+            $photoFile = $request->file('photo'); 
+            $photoFileName = $photoFile->getClientOriginalName(); 
+            $photoPath = $photoFile->storeAs('room_photos', $photoFileName, 'public'); 
 
             Rooms::create([
                 'hotel_id' => $request->input('hotel_id'),
@@ -46,6 +48,7 @@ class RoomController extends Controller
             return redirect()->back()->with('error', 'An error occurred while creating the room.');
         }
     }
+
     public function edit($id)
     {
         $room = Rooms::findOrFail($id);
