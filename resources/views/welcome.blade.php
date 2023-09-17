@@ -238,7 +238,7 @@
                 <a class="nav-link" href="#">Blog</a>
               </li> -->
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
+                <a class="nav-link" href="#contact-us">Contact Us</a>
               </li>
             </ul>
           </div>
@@ -736,7 +736,7 @@
     </div>
   </section>
 
-  <!-- <section class="contact_section  long_section">
+  <section class="contact_section  long_section" id="contact-us">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -776,7 +776,7 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- end client section -->
 
