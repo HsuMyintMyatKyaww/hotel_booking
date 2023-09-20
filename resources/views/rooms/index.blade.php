@@ -12,6 +12,7 @@
                     <!-- <th>ID</th> -->
                     <th>Hotel Name</th>
                     <th>Room Type</th>
+                    <th>Room Price</th>
                     <th>Image</th>
                     <th>Available</th>
                     <th>Actions</th>
@@ -23,6 +24,7 @@
                         <!-- <td>{{ $room->id }}</td> -->
                         <td>{{ $room->hotel->hotel_name }}</td>
                         <td>{{ $room->room_type }}</td>
+                        <td>{{ $room->price }}</td>
                         <td><img src="{{ asset('storage/' . $room->photo) }}" width="100"></td>
                         <td>{{ $room->available ? 'Yes' : 'No' }}</td>
                         <td>

@@ -26,21 +26,23 @@ class RoomController extends Controller
     {
         $request->validate([
             'hotel_id' => 'required|exists:hotels,id',
-            'room_type' => 'required|string|in:single,double,quad,king,suite,villa', 
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'room_type' => 'required|string|in:single,double,quad,king,suite,villa',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'available' => 'required|boolean',
+            'price' => 'required|numeric|min:0', // New validation rule for room price
         ]);
 
         try {
-            $photoFile = $request->file('photo'); 
-            $photoFileName = $photoFile->getClientOriginalName(); 
-            $photoPath = $photoFile->storeAs('room_photos', $photoFileName, 'public'); 
+            $photoFile = $request->file('photo');
+            $photoFileName = $photoFile->getClientOriginalName();
+            $photoPath = $photoFile->storeAs('room_photos', $photoFileName, 'public');
 
             Rooms::create([
                 'hotel_id' => $request->input('hotel_id'),
                 'room_type' => $request->input('room_type'),
-                'photo' => $photoPath, 
+                'photo' => $photoPath,
                 'available' => $request->input('available'),
+                'price' => $request->input('price'), // Store the room price
             ]);
 
             return redirect()->route('rooms.index')->with('success', 'Room created successfully.');
@@ -58,12 +60,13 @@ class RoomController extends Controller
 
     public function update(Request $request, $id)
     {
-        $room = Rooms::findOrFail($id); 
+        $room = Rooms::findOrFail($id);
 
         $request->validate([
             'hotel_id' => 'required|exists:hotels,id',
             'room_type' => 'required|string',
-            'photo' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'price' => 'required|numeric', // Add price validation
+            'photo' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048',
             'available' => 'required|boolean',
         ]);
 
@@ -75,11 +78,13 @@ class RoomController extends Controller
         $room->update([
             'hotel_id' => $request->input('hotel_id'),
             'room_type' => $request->input('room_type'),
+            'price' => $request->input('price'), // Update the room price
             'available' => $request->input('available'),
         ]);
 
         return redirect()->route('rooms.index')->with('success', 'Room updated successfully.');
     }
+
     public function destroy($id)
     {
         $room = Rooms::findOrFail($id);

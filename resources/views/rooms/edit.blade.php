@@ -29,6 +29,10 @@
                 </select>
             </div>
             <div class="form-group">
+                    <label for="price">Room Price</label>
+                    <input type="text" name="price" id="price" class="form-control" required>
+            </div>
+            <div class="form-group">
                 <label for="photo">Photo</label>
                 <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
             </div>

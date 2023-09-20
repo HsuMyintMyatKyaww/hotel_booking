@@ -43,8 +43,13 @@ body {
   min-height: 100vh;
 }
 
-.container {
-  flex-grow: 1;
+.container { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+  
 }
 
 section {
@@ -63,102 +68,7 @@ section {
     margin-bottom: 1em;
 }
 
-.figure {
-  background: #1d1d1d;
-  display: inline-block;
-  margin: 10px;
-  max-width: 280px;
-  min-width: 230px;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  width: 100%;
-}
 
-.figure * {
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-}
-
-section.section-2 {
-  color: #efefef;
-}
-
-.section-2 .figure {
-  background: #ffffff;
-  color: #1d1d1d;
-}
-
-.section-2 .figure img {
-  vertical-align: top;
-  max-width: 100%;
-  backface-visibility: hidden;
-}
-
-.section-2 .figure figcaption {
-  position: absolute;
-  background-color: #efefef;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  padding: 5px 20px;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  line-height: 1.1em; /* 1.1em */
-  overflow: hidden;
-  height: 44px;
-  width: 150px;
-}
-
-.section-2 .figure h3 {
-  text-transform: uppercase;
-  font-size: 0.9em;
-  margin: 0;
-  letter-spacing: 2px;
-}
-
-.section-2 .figure h3.hover {
-  color: #efefef;
-  font-weight: 700;
-}
-
-.section-2 .figure a {
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 1;
-  left: 0;
-  z-index: 1;
-}
-
-.section-2 .figure .title {
-  transform: translatey(50%);
-}
-.section-2 .figure .hover {
-  transform: translatey(50%);  
-}
-
-.section-2 .figure:hover > img,
-.section-2 .figure.hover > img {
-  opacity: 0;
-}
-
-.section-2 .figure:hover figcaption,
-.section-2 .figure.hover figcaption {
-  background-color: #1d1d1d;
-}
-
-.section-2 .figure:hover .title,
-.section-2 .figure.hover .title {
-  -webkit-transform: translateY(-150%);
-  transform: translateY(-150%);
-}
-
-.section-2 .figure:hover .hover, 
-.section-2 .figure.hover .hover {
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
 .header {
         background-color: #333;
         color: #fff;
@@ -363,6 +273,85 @@ ul {
   font-size: 14px;
   color: #878787;
 }
+
+/* Card */
+
+
+
+
+.banner-image {
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255, 0.255)
+}
+
+h1{
+  font-family: 'Righteous', sans-serif;
+  color: rgba(255,255,255,0.98);
+  text-transform: uppercase;
+  font-size: 2.4rem;
+}
+
+p {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 150%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.button-wrapper{
+  margin-top: 18px;
+}
+
+.btn {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-size: 0.8rem;  
+  letter-spacing: 2px;  
+  cursor: pointer;
+}
+
+.btn + .btn {
+  margin-left: 10px;
+}
+
+.outline {
+  background: transparent;
+  color: rgba(0, 212, 255, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.6);
+  transition: all .3s ease;
+  
+}
+
+.outline:hover{
+  transform: scale(1.125);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transition: all .3s ease;  
+}
+
+.fill {
+  background: rgba(0, 212, 255, 0.9);
+  color: rgba(255,255,255,0.95);
+  filter: drop-shadow(0);
+  font-weight: bold;
+  transition: all .3s ease; 
+}
+
+.fill:hover{
+  transform: scale(1.125);  
+  border-color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
+  transition: all .3s ease;    
+}
 </style>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
@@ -384,9 +373,9 @@ ul {
     <!-- header section strats -->
     <header class="header_section long_section px-0">
       <nav class="navbar navbar-expand-lg custom_nav-container ">
-      <a class="navbar-brand" href="{{ url('/') }}">
+      <!-- <a class="navbar-brand" href="{{ url('/') }}">
     <span>Luxe Haven</span>
-</a>
+</a> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""> </span>
         </button>
@@ -403,9 +392,11 @@ ul {
               <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Furnitures</a>
               </li> -->
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-              </li> -->
+              <li class="nav-item">
+              <a class="navbar-brand" href="{{ url('/') }}">
+    <span>Luxe Haven</span>
+</a>
+              </li>
               <!-- <li class="nav-item">
                 <a class="nav-link" href="#contact-us">Contact Us</a>
               </li> -->
@@ -427,41 +418,40 @@ ul {
       </nav>
     </header>
     <div class="container">
-    @if(isset($hotels) && count($hotels) > 0)
-        @foreach($hotels as $hotel)
-            @if (count($hotel->rooms) > 0)
+            @if(isset($hotels) && count($hotels) > 0)
+                @foreach($hotels as $hotel)
+                    @if (count($hotel->rooms) > 0)
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 style="color: wheat">{{ $hotel->hotel_name }} Hotel</h2>
+                            </div>
+                            @foreach ($hotel->rooms as $room)
+                                @if ($room->available)
+                                    <div class="col-md-4">
+                                        <div class="wrapper">
+                                            <img src="{{ asset('storage/' . $room->photo) }}" class="banner-image img-fluid" alt="Room Photo">
+                                            <h1 style="color: wheat">{{ $room->room_type }}</h1>
+                                            <p style="color: wheat">Price: ${{ $room->price }}</p>
+                                        </div>
+                                        <div class="button-wrapper">
+                                            <a href="{{ route('bookings.create', ['hotel' => $hotel->id, 'room' => $room->id]) }}" class="btn btn-primary">Book Room</a>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    @endif
+                @endforeach
+            @else
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>{{ $hotel->hotel_name }} Hotel</h2>
+                        <p>No hotels available for the provided city.</p>
                     </div>
-                    @foreach ($hotel->rooms as $room)
-                        @if ($room->available)
-                            <div class="col-md-4">
-                                <section class="section-2">
-                                    <figure class="figure">
-                                        <img src="{{ asset('storage/' . $room->photo) }}" class="img-fluid" alt="Room Photo">
-                                        <figcaption>
-                                            <h3 class="title mb-2" style="color: green">{{ $room->room_type }}</h3>
-                                            <h3 class="hover">
-                                                <a href="{{ route('bookings.create', ['hotel' => $hotel->id, 'room' => $room->id]) }}">Book Room</a>
-                                            </h3>
-                                        </figcaption>
-                                    </figure>
-                                </section>
-                            </div>
-                        @endif
-                    @endforeach
                 </div>
             @endif
-        @endforeach
-    @else
-        <div class="row">
-            <div class="col-md-12">
-                <p>No hotels available for the provided city.</p>
-            </div>
         </div>
-    @endif
-</div>
+        <br>
+    </div>
 
 <footer class="footer-section">
         <div class="container">
