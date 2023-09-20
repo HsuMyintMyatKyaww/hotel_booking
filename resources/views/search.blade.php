@@ -35,15 +35,16 @@ html {
 
 body {
   background-image: url('{{ asset('images/background.jpg') }}');
-  background-size: cover; 
+  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  backdrop-filter: blur(7px); /* Adjust the blur amount as needed */
 }
 
-.container { 
+.container-mid { 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,6 +114,9 @@ section {
 .btn-primary:hover {
     background-color: #0056b3;
 }
+
+/* Footer */
+
 ul {
     margin: 0px;
     padding: 0px;
@@ -188,15 +192,6 @@ ul {
   line-height: 38px;
   border-radius: 50%;
 }
-.facebook-bg{
-  background: #3B5998;
-}
-.twitter-bg{
-  background: #55ACEE;
-}
-.google-bg{
-  background: #DD4B39;
-}
 .footer-widget-heading h3 {
   color: #fff;
   font-size: 20px;
@@ -225,30 +220,6 @@ ul {
 .footer-widget ul li a {
   color: #878787;
   text-transform: capitalize;
-}
-.subscribe-form {
-  position: relative;
-  overflow: hidden;
-}
-.subscribe-form input {
-  width: 100%;
-  padding: 14px 28px;
-  background: #2E2E2E;
-  border: 1px solid #2E2E2E;
-  color: #fff;
-}
-.subscribe-form button {
-    position: absolute;
-    right: 0;
-    background: #ff5e14;
-    padding: 13px 20px;
-    border: 1px solid #ff5e14;
-    top: 0;
-}
-.subscribe-form button i {
-  color: #fff;
-  font-size: 22px;
-  transform: rotate(-6deg);
 }
 .copyright-area{
   background: #202020;
@@ -417,21 +388,22 @@ p {
         </div>
       </nav>
     </header>
-    <div class="container">
+    <div class="container-mid">
             @if(isset($hotels) && count($hotels) > 0)
                 @foreach($hotels as $hotel)
                     @if (count($hotel->rooms) > 0)
                         <div class="row">
                             <div class="col-md-12">
-                                <h2 style="color: wheat">{{ $hotel->hotel_name }} Hotel</h2>
+                              <br>
+                                <h1 style="color: wheat">{{ $hotel->hotel_name }} Hotel</h1>
                             </div>
                             @foreach ($hotel->rooms as $room)
                                 @if ($room->available)
                                     <div class="col-md-4">
                                         <div class="wrapper">
                                             <img src="{{ asset('storage/' . $room->photo) }}" class="banner-image img-fluid" alt="Room Photo">
-                                            <h1 style="color: wheat">{{ $room->room_type }}</h1>
-                                            <p style="color: wheat">Price: ${{ $room->price }}</p>
+                                            <h4 style="color: wheat">{{ $room->room_type }}</h4>
+                                            <p style="color: wheat">Price: Ks {{ $room->price }}</p>
                                         </div>
                                         <div class="button-wrapper">
                                             <a href="{{ route('bookings.create', ['hotel' => $hotel->id, 'room' => $room->id]) }}" class="btn btn-primary">Book Room</a>
