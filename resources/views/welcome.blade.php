@@ -268,7 +268,7 @@
                 <div class="col-md-5">
                   <div class="detail-box">
                     <h1>
-                    Welcome to Paradise Retreats 
+                    Welcome to Luxe Heaven 
                     </h1>
                     <p class="welcome-paragraph">
                     Discover a world of comfort and luxury at our exquisite hotels. 
@@ -277,10 +277,10 @@
                     we have the perfect accommodations to make your stay unforgettable. 
                     Our hotels offer a wide range of amenities and services to ensure a seamless and enjoyable experience for our guests.</p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="#contact-us" class="btn1">
                         Contact Us
                       </a>
-                      <a href="" class="btn2">
+                      <a href="#about" class="btn2">
                         About Us
                       </a>
                     </div>
@@ -416,7 +416,7 @@
           Our Hotels
         </h2>
         <p>
-        Book Now and Experience the Paradise Difference! Your dream vacation awaits at Paradise Retreats!
+        Book Now and Experience the Paradise Difference! Your dream vacation awaits at Luxe Heaven!
         </p>
       </div>
       <div class="row">
@@ -672,7 +672,7 @@
                       </h6>
                     </div>
                     <p>
-                    I recently dined at Gourmet Haven, and I must say it was a culinary journey that exceeded all expectations. From the moment I walked in, the ambiance was inviting and elegant. The menu offered a delightful array of choices, and the dishes were nothing short of spectacular. Each course was a masterpiece, beautifully presented and bursting with flavor. 
+                    I recently dined at Bagan River View, and I must say it was a culinary journey that exceeded all expectations. From the moment I walked in, the ambiance was inviting and elegant. The menu offered a delightful array of choices, and the dishes were nothing short of spectacular. Each course was a masterpiece, beautifully presented and bursting with flavor. 
                     </p>
                   </div>
                 </div>

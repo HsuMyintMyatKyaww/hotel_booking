@@ -5,24 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
  @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,700&display=swap');
 
-/* Core Styles */
 
 *,
 *:before,
@@ -43,6 +38,13 @@ body {
   background-size: cover; 
   background-repeat: no-repeat;
   background-attachment: fixed; 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex-grow: 1;
 }
 
 section {
@@ -163,7 +165,6 @@ section.section-2 {
         text-align: center;
         padding: 1em;
     }   
-    /* Additional responsive styles */
 .search-form {
     display: flex;
     flex-direction: column;
@@ -365,14 +366,10 @@ ul {
 </style>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-  <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
 
-  <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
-  <!-- Custom styles for this template -->
   <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
   <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -390,7 +387,6 @@ ul {
       <a class="navbar-brand" href="{{ url('/') }}">
     <span>Luxe Haven</span>
 </a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""> </span>
         </button>
@@ -398,30 +394,29 @@ ul {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
             <ul class="navbar-nav  ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              <!-- <li class="nav-item active">
+                <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=""> About</a>
-              </li>
-              <li class="nav-item">
-                <!-- <a class="nav-link" href="">Furnitures</a> -->
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="">Contact Us</a>
-              </li>
+                <a class="nav-link" href="#about"> About</a>
+              </li> -->
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Furnitures</a>
+              </li> -->
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+              </li> -->
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#contact-us">Contact Us</a>
+              </li> -->
             </ul>
           </div>
           <div class="quote_btn-container">
-            <a href="">
-              <span>
-                Login
-              </span>
-              <i class="fa fa-user" aria-hidden="true"></i>
-            </a>
+          <!-- <a href="{{ route('home') }}">
+    <span>Login</span>
+    <i class="fa fa-user" aria-hidden="true"></i>
+</a> -->
+
             <form class="form-inline">
               <!-- <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -433,40 +428,41 @@ ul {
     </header>
     <div class="container">
     @if(isset($hotels) && count($hotels) > 0)
-    <div class="row">
-        <div class="col-md-12">
-            <h2>{{ $hotels[0]->hotel_name }} Hotel</h2>
-        </div>
-        @forelse($hotels as $hotel)
-            @foreach ($hotel->rooms as $room)
-                @if ($room->available)
-                    <div class="col-md-4">
-                        <section class="section-2">
-                            <figure class="figure">
-                                <img src="{{ asset('storage/' . $room->photo) }}" class="img-fluid" alt="Room Photo">
-                                <figcaption>
-                                    <h3 class="title mb-2" style="color: green">{{ $room->room_type }}</h3>
-                                    <h3 class="hover">
-                                        <a href="{{ route('bookings.create', ['hotel' => $hotel->id, 'room' => $room->id]) }}">Book Room</a>
-                                    </h3>
-                                </figcaption>
-                            </figure>
-                        </section>
+        @foreach($hotels as $hotel)
+            @if (count($hotel->rooms) > 0)
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>{{ $hotel->hotel_name }} Hotel</h2>
                     </div>
-                @endif
-            @endforeach
-        @empty
+                    @foreach ($hotel->rooms as $room)
+                        @if ($room->available)
+                            <div class="col-md-4">
+                                <section class="section-2">
+                                    <figure class="figure">
+                                        <img src="{{ asset('storage/' . $room->photo) }}" class="img-fluid" alt="Room Photo">
+                                        <figcaption>
+                                            <h3 class="title mb-2" style="color: green">{{ $room->room_type }}</h3>
+                                            <h3 class="hover">
+                                                <a href="{{ route('bookings.create', ['hotel' => $hotel->id, 'room' => $room->id]) }}">Book Room</a>
+                                            </h3>
+                                        </figcaption>
+                                    </figure>
+                                </section>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            @endif
+        @endforeach
+    @else
+        <div class="row">
             <div class="col-md-12">
                 <p>No hotels available for the provided city.</p>
             </div>
-        @endforelse
-    </div>
-    @else
-    <div class="col-md-12">
-        <p>No hotels available for the provided city.</p>
-    </div>
+        </div>
     @endif
 </div>
+
 <footer class="footer-section">
         <div class="container">
             <div class="footer-cta pt-5 pb-5">
@@ -525,7 +521,6 @@ ul {
             </div>
         </div>
     </footer>
-
 </body>
 
 </html>
