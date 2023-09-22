@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Hotels; 
+use Illuminate\Support\Facades\Auth;
+
 
 class HotelController extends Controller
 {
@@ -28,6 +30,8 @@ class HotelController extends Controller
         Hotels::create([
             'hotel_name' => $request->input('hotel_name'),
             'city' => $request->input('city'),
+            'created_by' => auth()->id(),
+            'updated_by' => auth()->id(),
         ]);
 
         return redirect()->route('hotels.index')->with('success', 'Hotel created successfully.');
@@ -49,6 +53,7 @@ class HotelController extends Controller
         $hotel->update([
             'hotel_name' => $request->input('hotel_name'),
             'city' => $request->input('city'),
+            'updated_by' => auth()->id(),
         ]);
 
         return redirect()->route('hotels.index')->with('success', 'Hotel updated successfully.');

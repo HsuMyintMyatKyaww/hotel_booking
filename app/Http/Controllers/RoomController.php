@@ -29,7 +29,7 @@ class RoomController extends Controller
             'room_type' => 'required|string|in:single,double,quad,king,suite,villa',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'available' => 'required|boolean',
-            'price' => 'required|numeric|min:0', // New validation rule for room price
+            'price' => 'required|numeric|min:0', 
         ]);
 
         try {
@@ -42,7 +42,9 @@ class RoomController extends Controller
                 'room_type' => $request->input('room_type'),
                 'photo' => $photoPath,
                 'available' => $request->input('available'),
-                'price' => $request->input('price'), // Store the room price
+                'price' => $request->input('price'), 
+                'created_by' => auth()->id(), 
+                'updated_by' => auth()->id(),
             ]);
 
             return redirect()->route('rooms.index')->with('success', 'Room created successfully.');
@@ -65,7 +67,7 @@ class RoomController extends Controller
         $request->validate([
             'hotel_id' => 'required|exists:hotels,id',
             'room_type' => 'required|string',
-            'price' => 'required|numeric', // Add price validation
+            'price' => 'required|numeric',
             'photo' => 'file|image|mimes:jpeg,png,jpg,gif|max:2048',
             'available' => 'required|boolean',
         ]);
@@ -78,8 +80,9 @@ class RoomController extends Controller
         $room->update([
             'hotel_id' => $request->input('hotel_id'),
             'room_type' => $request->input('room_type'),
-            'price' => $request->input('price'), // Update the room price
+            'price' => $request->input('price'),
             'available' => $request->input('available'),
+            'updated_by' => auth()->id(),
         ]);
 
         return redirect()->route('rooms.index')->with('success', 'Room updated successfully.');
@@ -103,7 +106,7 @@ class RoomController extends Controller
     public function updateAvailability(Rooms $room)
     {
         $room->update([
-            'available' => 1, // Mark the room as available
+            'available' => 1, 
         ]);
 
         return redirect()->back()->with('success', 'Room availability updated.');
