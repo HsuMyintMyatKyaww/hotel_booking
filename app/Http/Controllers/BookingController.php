@@ -65,7 +65,7 @@ class BookingController extends Controller
     // Mark the selected room as unavailable
     $room->update(['available' => false]);
 
-    return redirect('/')->with('success', 'Booking created successfully.');
+    return redirect()->route('payment')->with('success', 'Booking created successfully.');
 }
 
 }

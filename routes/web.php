@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/hotels/{id}', [HotelController::class, 'destroy'])->name('hotels.destroy');
 });
 
+Route::get('/payment', function () {return view('payment');})->name('payment');
 
 
 // Search
