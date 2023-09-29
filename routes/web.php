@@ -5,6 +5,7 @@ use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -47,6 +48,11 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/payment', function () {return view('payment');})->name('payment');
+
+// Contacts
+
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/admin/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
 
 // Search

@@ -746,24 +746,26 @@
                 Contact Us
               </h2>
             </div>
-            <form action="">
-              <div>
-                <input type="text" placeholder="Your Name" />
-              </div>
-              <div>
-                <input type="text" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div>
-                <input type="text" class="message-box" placeholder="Message" />
-              </div>
-              <div class="btn_box">
-                <button>
-                  SEND
-                </button>
-              </div>
+            <form action="{{ route('contact.store') }}" method="POST"> <!-- Specify the action and method -->
+                @csrf <!-- Add CSRF token field for Laravel form submissions -->
+
+                <div>
+                    <input type="text" name="name" placeholder="Your Name" /> <!-- Add 'name' attribute -->
+                </div>
+                <div>
+                    <input type="text" name="phone" placeholder="Phone Number" /> <!-- Add 'name' attribute -->
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="Email" /> <!-- Add 'name' attribute -->
+                </div>
+                <div>
+                    <textarea name="message" class="message-box" placeholder="Message"></textarea> <!-- Add 'name' attribute -->
+                </div>
+                <div class="btn_box">
+                    <button type="submit"> <!-- Specify 'type' as submit -->
+                        SEND
+                    </button>
+                </div>
             </form>
           </div>
         </div>
@@ -776,7 +778,8 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
+
 
   <!-- end client section -->
 

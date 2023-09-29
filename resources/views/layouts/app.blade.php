@@ -27,7 +27,7 @@
     <div id="app">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+            <!-- <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a> -->
             <!-- Sidebar Toggle-->
             <button class="sidebarToggle btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
                 <x-tablericon-menu-2 />
@@ -35,10 +35,10 @@
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <!-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button">
                         <x-tablericon-search />
-                    </button>
+                    </button> -->
                 </div>
             </form>
             <!-- Navbar-->
@@ -79,12 +79,12 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link {{ request()->is('home') ? 'active' : null }}" href="{{ route('home') }}">
+                            <!-- <a class="nav-link {{ request()->is('home') ? 'active' : null }}" href="{{ route('home') }}">
                                 <div class="sb-nav-link-icon">
                                     <x-tablericon-dashboard />
                                 </div>
                                 Dashboard
-                            </a>
+                            </a> -->
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon">
@@ -113,6 +113,13 @@
                                 </div>
                                 Bookings
                             </a>
+                            <a class="nav-link" href="{{ route('contacts.index') }}">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fas fa-envelope"></i> 
+                                </div>
+                                Contact
+                            </a>
+
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="layout-static.html">Static Navigation</a>
