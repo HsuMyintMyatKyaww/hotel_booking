@@ -206,6 +206,14 @@
     padding: 5px 10px; /* You can adjust the values as needed */
 }
 
+/* message box */
+
+.large-message-box {
+  width: 540px; /* Adjust the width as needed */
+  height: 140px;
+}
+
+
 </style>
 </head>
 
@@ -746,23 +754,22 @@
                 Contact Us
               </h2>
             </div>
-            <form action="{{ route('contact.store') }}" method="POST"> <!-- Specify the action and method -->
-                @csrf <!-- Add CSRF token field for Laravel form submissions -->
-
+            <form action="{{ route('contact.store') }}" method="POST"> 
+                @csrf 
                 <div>
-                    <input type="text" name="name" placeholder="Your Name" /> <!-- Add 'name' attribute -->
+                    <input type="text" name="name" placeholder="Your Name" /> 
                 </div>
                 <div>
-                    <input type="text" name="phone" placeholder="Phone Number" /> <!-- Add 'name' attribute -->
+                    <input type="text" name="phone" placeholder="Phone Number" /> 
                 </div>
                 <div>
-                    <input type="email" name="email" placeholder="Email" /> <!-- Add 'name' attribute -->
+                    <input type="email" name="email" placeholder="Email" />
                 </div>
                 <div>
-                    <textarea name="message" class="message-box" placeholder="Message"></textarea> <!-- Add 'name' attribute -->
+                    <textarea name="message" class="message-box large-message-box" placeholder="Message"></textarea>
                 </div>
                 <div class="btn_box">
-                    <button type="submit"> <!-- Specify 'type' as submit -->
+                    <button type="submit">
                         SEND
                     </button>
                 </div>
