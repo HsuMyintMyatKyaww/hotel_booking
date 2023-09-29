@@ -16,6 +16,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -95,21 +97,21 @@
                             </a> -->
                             <a class="nav-link" href="{{ route('hotels.index') }}">
                                 <div class="sb-nav-link-icon">
-                                    <x-tablericon-layout-board />
+                                    <i class="fas fa-hotel"></i> <!-- Hotels icon -->
                                 </div>
                                 Hotels
                             </a>
                             <a class="nav-link" href="{{ route('rooms.index') }}">
                                 <div class="sb-nav-link-icon">
-                                    <x-tablericon-layout-board />
+                                    <i class="fas fa-bed"></i>
                                 </div>
                                 Rooms
                             </a>
                             <a class="nav-link" href="{{ route('bookings.index') }}">
                                 <div class="sb-nav-link-icon">
-                                    <x-tablericon-layout-board />
+                                    <i class="fas fa-book"></i> 
                                 </div>
-                                Book
+                                Bookings
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
